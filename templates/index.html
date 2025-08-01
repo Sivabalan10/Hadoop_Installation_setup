@@ -3,67 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Links Page</title>
+  <title>Hadoop Installation Setup</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #121212;
+      color: #e0e0e0;
       margin: 0;
       padding: 20px;
-      color: #333;
     }
-    h1 {
+    h1, h3 {
       text-align: center;
-      color: #004aad;
-      margin-bottom: 30px;
+      color: #00bcd4;
+      margin-bottom: 20px;
     }
     ul {
       list-style-type: none;
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 0;
     }
     li {
-      background: white;
+      background: #1e1e1e;
       margin-bottom: 15px;
       padding: 15px 20px;
       border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      font-size: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      font-size: 16px;
     }
     a {
-      color: #1a73e8;
+      color: #64b5f6;
       text-decoration: none;
       font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
     }
+    .command {
+      background-color: #2e2e2e;
+      border: 1px solid #444;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      cursor: pointer;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    .command:hover {
+      background-color: #383838;
+    }
+    .btn-green {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      margin: 5px 0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-green:hover {
+      background-color: #45a049;
+    }
+    hr {
+      border: 1px solid #333;
+      margin: 30px 0;
+    }
   </style>
+  <script>
+    function copyCommand(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard: ' + text);
+      });
+    }
+  </script>
 </head>
 <body>
+
   <h1>Hadoop Installation Setup</h1>
   <ul>
-    
-    <li>Meet Link: <a href="https://meet.google.com/upk-pbzz-dwq" target="_blank" rel="noopener noreferrer">https://meet.google.com/upk-pbzz-dwq</a></li>
-    <li>Google Drive Folder: <a href="https://drive.google.com/drive/folders/1L_E9SvMae9ctJwDRLT__Sv3-rGO6L-A6?usp=drive_link" target="_blank" rel="noopener noreferrer">Drive Folder</a></li>
-    
-    <li>Apache Hadoop 3.3.6: <a href="https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz" target="_blank" rel="noopener noreferrer">Download Link</a></li>
-    <li>GPT: <a href="https://chatgpt.com/share/68886c9d-c150-8007-8563-f7b5e9edda20" target="_blank" rel="noopener noreferrer">ChatGPT Share</a></li>
+    <li>Meet Link: <a href="https://meet.google.com/upk-pbzz-dwq" target="_blank">Join Meeting</a></li>
+    <li>Google Drive Folder: <a href="https://drive.google.com/drive/folders/1L_E9SvMae9ctJwDRLT__Sv3-rGO6L-A6?usp=drive_link" target="_blank">Open Folder</a></li>
+    <li>Apache Hadoop 3.3.6: <a href="https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz" target="_blank">Download</a></li>
+    <li>GPT Share: <a href="https://chatgpt.com/share/68886c9d-c150-8007-8563-f7b5e9edda20" target="_blank">View Response</a></li>
+  </ul>
 
-    <H3>Optional:</H3>
-    <li>winutils.exe: <a href="https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.6/bin/winutils.exe" target="_blank" rel="noopener noreferrer">GitHub Link</a></li>
-    <li>hadoop.dll: <a href="https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.6/bin/hadoop.dll" target="_blank" rel="noopener noreferrer">GitHub Link</a></li>
-    <h1>Download your file</h1>
-    <hr>
-    <h1>Test the file</h1>
-    <p>>> hdfs namenode -format</p>
-    <p>>> start-dfs.cmd</p>
-    <p>>> start-yarn.cmd</p>
-    <li>Check hadoop server - 1: <a href="http://localhost:8088" target="_blank" rel="noopener noreferrer">Run test</a></li>
-    <li>Check hadoop server - 2: <a href="http://localhost:9870" target="_blank" rel="noopener noreferrer">Run test</a></li>
+  <h3>Optional Files</h3>
+  <ul>
+    <li>winutils.exe: <a href="https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.6/bin/winutils.exe" target="_blank">Download</a></li>
+    <li>hadoop.dll: <a href="https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.6/bin/hadoop.dll" target="_blank">Download</a></li>
+  </ul>
 
-    
-</ul>
+  <hr>
+
+  <h1>Run Setup Commands</h1>
+  <div onclick="copyCommand('hdfs namenode -format')" class="command">> hdfs namenode -format</div>
+  <div onclick="copyCommand('start-dfs.cmd')" class="command">> start-dfs.cmd</div>
+  <div onclick="copyCommand('start-yarn.cmd')" class="command">> start-yarn.cmd</div>
+
+  <hr>
+
+  <h1>Run Tests</h1>
+  <ul>
+    <li><a href="http://localhost:8088" class="btn-green" target="_blank">Run Test - Resource Manager</a></li>
+    <li><a href="http://localhost:9870" class="btn-green" target="_blank">Run Test - NameNode</a></li>
+  </ul>
+
 </body>
 </html>
