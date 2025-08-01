@@ -8,6 +8,6 @@ def hello():
 
 @app.route('/code')
 def home():
-    return send_file('test.py', as_attachment=True)
+    return send_file('env_setup.py', as_attachment=True)
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+    app.run()
